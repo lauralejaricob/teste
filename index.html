@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Percepção de Lucas - Gibi</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Roboto+Condensed:wght@400;700&display=swap');
+        
+        body {
+            background-color: #e0e0e0;
+            margin: 0;
+            padding: 20px;
+            font-family: 'Roboto Condensed', sans-serif;
+        }
+        
+        .comic-book {
+            max-width: 800px;
+            margin: 0 auto;
+            perspective: 1000px;
+        }
+        
+        .comic-page {
+            background-color: white;
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 3px solid #000;
+            border-radius: 2px;
+            box-shadow: 5px 5px 0 rgba(0,0,0,0.3),
+                        15px 15px 0 rgba(0,0,0,0.1);
+            transform: rotate(0.5deg);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .comic-page:nth-child(even) {
+            transform: rotate(-0.5deg);
+        }
+        
+        .comic-page::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://www.transparenttextures.com/patterns/notebook.png');
+            opacity: 0.05;
+            pointer-events: none;
+        }
+        
+        .page-header {
+            font-family: 'Bangers', cursive;
+            text-align: center;
+            font-size: 24px;
+            color: #e74c3c;
+            text-shadow: 2px 2px 0 #ccc;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            border-bottom: 2px dashed #ccc;
+            padding-bottom: 10px;
+        }
+        
+        .panel-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .panel {
+            border: 2px solid #000;
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+            background-color: white;
+            box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+        }
+        
+        .panel-large {
+            grid-column: span 2;
+        }
+        
+        .panel-image {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            border-bottom: 1px solid #000;
+        }
+        
+        .speech-bubble {
+            position: relative;
+            background-color: white;
+            border: 2px solid #000;
+            border-radius: 15px;
+            padding: 10px;
+            margin: 10px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        
+        .speech-bubble::after {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: white;
+            border-right: 2px solid #000;
+            border-bottom: 2px solid #000;
+            bottom: -10px;
+            left: 20px;
+            transform: rotate(45deg);
+        }
+        
+        .thought-bubble {
+            position: relative;
+            background-color: white;
+            border: 2px solid #000;
+            border-radius: 20px;
+            padding: 10px;
+            margin: 10px;
+            font-size: 14px;
+            font-style: italic;
+        }
+        
+        .thought-bubble::before,
+        .thought-bubble::after {
+            content: '○';
+            position: absolute;
+            font-size: 20px;
+            color: #000;
+        }
+        
+        .thought-bubble::before {
+            bottom: -15px;
+            left: 15px;
+        }
+        
+        .thought-bubble::after {
+            bottom: -25px;
+            left: 25px;
+            font-size: 15px;
+        }
+        
+        .narration-box {
+            background-color: #f8f8f8;
+            border: 2px solid #000;
+            border-radius: 5px;
+            padding: 8px 10px;
+            margin: 10px;
+            font-size: 13px;
+            text-align: center;
+            font-style: italic;
+        }
+        
+        .character-name {
+            font-weight: bold;
+            color: #e74c3c;
+            display: block;
+            margin-bottom: 3px;
+        }
+        
+        .page-number {
+            position: absolute;
+            bottom: 5px;
+            right: 10px;
+            font-family: 'Bangers', cursive;
+            font-size: 16px;
+            color: #999;
+        }
+        
+        @media (max-width: 600px) {
+            .panel-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .panel-large {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="comic-book">
+        <!-- Página 1 -->
+        <div class="comic-page">
+            <div class="page-header">A PERCEPÇÃO DE LUCAS - PARTE 1</div>
+            
+            <div class="panel-grid">
+                <div class="panel panel-large">
+                    <div class="panel-image" style="background-image: url('imagens/comendo.png');"></div>
+                    <div class="narration-box">
+                        Meu nome é Lucas e tenho 14 anos. Desde pequeno, sempre gostei muito de comer...
+                    </div>
+                </div>
+                
+                <div class="panel">
+                    <div class="panel-image" style="background-image: url('imagens/espelho.png');"></div>
+                    <div class="thought-bubble">
+                        Estou normal, igual todo mundo. Por que dizem que estou acima do peso?
+                    </div>
+                </div>
+                
+                <div class="panel">
+                    <div class="panel-image" style="background-image: url('imagens/cansado.png');"></div>
+                    <div class="thought-bubble">
+                        Por que fico tão cansado só de subir escadas?
+                    </div>
+                </div>
+            </div>
+            
+            <div class="page-number">1</div>
+        </div>
+        
+        <!-- Página 2 -->
+        <div class="comic-page">
+            <div class="page-header">A PERCEPÇÃO DE LUCAS - PARTE 2</div>
+            
+            <div class="panel-grid">
+                <div class="panel panel-large">
+                    <div class="panel-image" style="background-image: url('imagens/amigo.png');"></div>
+                    <div class="speech-bubble">
+                        <span class="character-name">AMIGO</span>
+                        Lucas, você está acima do peso! Devia cuidar melhor da saúde.
+                    </div>
+                    <div class="speech-bubble" style="margin-top: 20px; background-color: #ffe6e6;">
+                        <span class="character-name">LUCAS</span>
+                        Não estou! Você que está exagerando! Me vejo normal no espelho.
+                    </div>
+                </div>
+                
+                <div class="panel">
+                    <div class="panel-image" style="background-image: url('imagens/choque.png');"></div>
+                    <div class="narration-box">
+                        O choque veio quando vi uma foto minha e mal me reconheci...
+                    </div>
+                </div>
+                
+                <div class="panel">
+                    <div class="panel-image" style="background-image: url('imagens/medico.png');"></div>
+                    <div class="speech-bubble">
+                        <span class="character-name">MÉDICO</span>
+                        Lucas, você tem fatorexia - uma distorção da autoimagem.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="page-number">2</div>
+        </div>
+        
+        <!-- Página 3 -->
+        <div class="comic-page">
+            <div class="page-header">A PERCEPÇÃO DE LUCAS - PARTE FINAL</div>
+            
+            <div class="panel-grid">
+                <div class="panel">
+                    <div class="panel-image" style="background-image: url('imagens/nutricionista.png');"></div>
+                    <div class="narration-box">
+                        Comecei acompanhamento com nutricionista
+                    </div>
+                </div>
+                
+                <div class="panel">
+                    <div class="panel-image" style="background-image: url('imagens/terapia.png');"></div>
+                    <div class="narration-box">
+                        E terapia para entender minha relação com a comida
+                    </div>
+                </div>
+                
+                <div class="panel panel-large">
+                    <div class="panel-image" style="background-image: url('imagens/feliz.png');"></div>
+                    <div class="speech-bubble" style="background-color: #e6ffe6;">
+                        <span class="character-name">LUCAS</span>
+                        Hoje me vejo como realmente sou! Aprendi a cuidar da minha saúde física e mental.
+                    </div>
+                    <div class="narration-box" style="margin-top: 10px; background-color: #ffffe6;">
+                        Se você se identifica com minha história, busque ajuda! É o primeiro passo para mudar.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="page-number">3</div>
+        </div>
+    </div>
+</body>
+</html>
